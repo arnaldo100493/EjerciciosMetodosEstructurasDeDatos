@@ -40,7 +40,7 @@ public class Pila<E> {
         return elemento;
     }
     
-    public E cima() {
+    public E getCima() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.tope.getElemento();
@@ -60,6 +60,86 @@ public class Pila<E> {
             this.poner(pilaAuxiliar.quitar());
         }
         return s;
+    }
+    
+    public Pila<E> eliminarPrimerElemento(Pila<E> x) {
+        Pila<E> y = new Pila<>();
+        while (!x.estaVacia()) {
+            y.poner(x.quitar());
+        }
+        y.quitar();
+        while (!y.estaVacia()) {
+            x.poner(y.quitar());
+        }
+        return x;
+    }
+    
+    public void invertirExtremos(Pila<E> x) {
+        E elementoAuxiliar = x.quitar();
+        Pila<E> y = new Pila<>();
+        while (!x.estaVacia()) {
+            y.poner(x.quitar());
+        }
+        x.poner(elementoAuxiliar);
+        elementoAuxiliar = y.quitar();
+        while (!y.estaVacia()) {
+            x.poner(y.quitar());
+        }
+        x.poner(elementoAuxiliar);
+    }
+    
+    public void copiarPila(Pila<E> x) {
+        Pila<E> y = new Pila<>();
+        while (!x.estaVacia()) {
+            y.poner(x.quitar());
+        }
+        while (!y.estaVacia()) {
+            System.out.println(y.quitar());
+        }
+    }
+    
+    public void eliminarElementoEspecifico(Pila<E> x, E elemento) {
+        E elementoAuxiliar = null;
+        Pila<E> y = new Pila<>();
+        if (x.estaVacia()) {
+            System.out.println("Pila Vacía...!!!");
+        } else {
+            while (!x.estaVacia()) {
+                elementoAuxiliar = x.quitar();
+                if (elementoAuxiliar.equals(elemento)) {
+                    elemento = null;
+                    System.out.println("Elemento Eliminado...!!!");
+                } else {
+                    y.poner(elementoAuxiliar);
+                }
+            }
+            while (!y.estaVacia()) {
+                x.poner(y.quitar());
+            }
+        }
+    }
+    
+    public void eliminarElementosRepetidosConsecutivos(Pila<E> x) {
+        E elemento = null;
+        Pila<E> y = new Pila<>();
+        while (!x.estaVacia()) {
+            elemento = x.quitar();
+            while (elemento.equals(x.getCima())) {
+                x.quitar();
+            }
+            y.poner(elemento);
+        }
+        while (!y.estaVacia()) {
+            x.poner(y.quitar());
+        }
+    }
+    
+    public Pila<E> invertirElementos(Pila<E> x) {
+        Pila<E> y = new Pila<>();
+        while (!x.estaVacia()) {
+            y.poner(x.quitar());
+        }
+        return y;
     }
     
 }
