@@ -36,6 +36,8 @@ public class Pila<E> {
         if (!this.estaVacia()) {
             elemento = this.tope.getElemento();
             this.tope = this.tope.getSiguiente();
+        } else {
+            System.out.println("Pila Vacía...!!!");
         }
         return elemento;
     }
@@ -107,8 +109,8 @@ public class Pila<E> {
             while (!x.estaVacia()) {
                 elementoAuxiliar = x.quitar();
                 if (elementoAuxiliar.equals(elemento)) {
+                    System.out.println("Elemento " + elemento + "Eliminado...!!!");
                     elemento = null;
-                    System.out.println("Elemento Eliminado...!!!");
                 } else {
                     y.poner(elementoAuxiliar);
                 }
