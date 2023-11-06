@@ -33,8 +33,12 @@ public class Nodo<E> {
         this.siguiente = siguiente;
     }
 
+    public boolean tieneAnterior() {
+        return this.anterior != null;
+    }
+
     public boolean tieneSiguiente() {
-        return this.getSiguiente() != null;
+        return this.siguiente != null;
     }
 
     /**
