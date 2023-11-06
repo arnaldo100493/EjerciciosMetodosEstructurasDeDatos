@@ -3,15 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
- package com.estructurasdedatos;
+package com.estructurasdedatos;
+
 /**
  *
  * @author abarrios
  */
 public class Nodo<E> {
 
-    private E elemento;
     private Nodo<E> anterior;
+    private E elemento;
     private Nodo<E> siguiente;
 
     public Nodo() {
@@ -32,18 +33,8 @@ public class Nodo<E> {
         this.siguiente = siguiente;
     }
 
-    /**
-     * @return the elemento
-     */
-    public E getElemento() {
-        return elemento;
-    }
-
-    /**
-     * @param elemento the elemento to set
-     */
-    public void setElemento(E elemento) {
-        this.elemento = elemento;
+    public boolean tieneSiguiente() {
+        return this.getSiguiente() != null;
     }
 
     /**
@@ -58,6 +49,20 @@ public class Nodo<E> {
      */
     public void setAnterior(Nodo<E> anterior) {
         this.anterior = anterior;
+    }
+
+    /**
+     * @return the elemento
+     */
+    public E getElemento() {
+        return elemento;
+    }
+
+    /**
+     * @param elemento the elemento to set
+     */
+    public void setElemento(E elemento) {
+        this.elemento = elemento;
     }
 
     /**
