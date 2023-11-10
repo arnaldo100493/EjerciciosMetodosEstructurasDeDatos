@@ -12,6 +12,7 @@ package com.estructurasdedatos;
 public class Pila<E> {
 
     private Nodo<E> tope;
+    private int tamanio;
 
     public Pila() {
         this.tope = null;
@@ -19,6 +20,10 @@ public class Pila<E> {
 
     public boolean estaVacia() {
         return this.tope == null;
+    }
+    
+    public int getTamanio(){
+        return this.tamanio;
     }
 
     public void poner(E elemento) {
@@ -29,6 +34,7 @@ public class Pila<E> {
             this.tope.setSiguiente(nuevoNodo);
             this.tope = nuevoNodo;
         }
+        this.tamanio++;
     }
 
     public E quitar() {
@@ -36,6 +42,7 @@ public class Pila<E> {
         if (!this.estaVacia()) {
             elemento = this.tope.getElemento();
             this.tope = this.tope.getSiguiente();
+            this.tamanio--;
         } else {
             System.out.println("Pila Vacía...!!!");
         }

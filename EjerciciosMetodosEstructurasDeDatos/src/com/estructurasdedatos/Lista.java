@@ -13,6 +13,7 @@ public class Lista<E> {
 
     private Nodo<E> listaPositivos;
     private Nodo<E> listaNegativos;
+    private int tamanio;
 
     public Lista() {
         this.listaPositivos = this.listaNegativos = null;
@@ -21,16 +22,22 @@ public class Lista<E> {
     public boolean estaVacia() {
         return listaPositivos == null && listaNegativos == null;
     }
+    
+    public int obtenerTamanio(){
+        return this.tamanio;
+    }
 
     public void insertar(int dato) {
         if (dato > 0) {
             Nodo positivo = new Nodo(dato);
             if (estaVacia()) {
                 listaPositivos = positivo;
+                this.tamanio++;
                 System.out.println("El numero " + dato + " es positivo y se ha insertado correctamente a la lista de valores positivos...!!!");
             } else {
                 listaPositivos.setSiguiente(positivo);
                 listaPositivos = positivo;
+                this.tamanio++;
                 System.out.println("El numero " + dato + " es positivo y se ha insertado correctamente a la lista de valores positivos...!!!");
             }
         } else {

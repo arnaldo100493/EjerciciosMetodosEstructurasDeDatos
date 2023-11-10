@@ -15,6 +15,7 @@ public class ColaArreglo<E> {
     private int primero;
     private int ultimo;
     private int maximo;
+    private int tamanio;
 
     public ColaArreglo() {
         this.maximo = 100;
@@ -37,11 +38,16 @@ public class ColaArreglo<E> {
     public boolean estaLlena() {
         return this.primero == this.maximo - 1;
     }
+    
+    public int getTamanio(){
+        return this.tamanio;
+    }
 
     public void poner(E elemento) {
         if (!this.estaLlena()) {
             this.listadoElementos[this.ultimo] = elemento;
             this.ultimo++;
+            this.tamanio++;
         } else {
             System.out.println("Pila Llena...!!!");
         }
@@ -52,6 +58,7 @@ public class ColaArreglo<E> {
         if (!this.estaVacia()) {
             elemento = this.listadoElementos[this.primero];
             this.primero--;
+            this.tamanio--;
         } else {
             System.out.println("Pila Vacía...!!!");
         }
