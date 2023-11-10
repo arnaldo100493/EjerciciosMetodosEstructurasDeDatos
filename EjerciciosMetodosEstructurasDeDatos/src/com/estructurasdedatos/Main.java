@@ -16,7 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Cola lista = new Cola();
+        Cola<Integer> lista = new Cola<>();
         lista.poner(1);
         lista.poner(2);
         lista.poner(3);
