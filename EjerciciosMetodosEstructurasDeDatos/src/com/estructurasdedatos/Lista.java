@@ -11,8 +11,8 @@ package com.estructurasdedatos;
  */
 public class Lista<E> {
 
-    private Nodo listaPositivos;
-    private Nodo listaNegativos;
+    private Nodo<E> listaPositivos;
+    private Nodo<E> listaNegativos;
 
     public Lista() {
         this.listaPositivos = this.listaNegativos = null;
@@ -45,5 +45,4 @@ public class Lista<E> {
             }
         }
     }
-
 }
