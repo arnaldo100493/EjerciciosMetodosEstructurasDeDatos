@@ -12,15 +12,15 @@ package com.estructurasdedatos;
  */
 public class Pila<E> {
 
-    private Nodo<E> tope;
+    private Nodo<E> cima;
     private int tamanio;
 
     public Pila() {
-        this.tope = null;
+        this.cima = null;
     }
 
     public boolean estaVacia() {
-        return this.tope == null;
+        return this.cima == null;
     }
     
     public int getTamanio(){
@@ -30,10 +30,10 @@ public class Pila<E> {
     public void poner(E elemento) {
         Nodo<E> nuevoNodo = new Nodo<>(elemento);
         if (this.estaVacia()) {
-            this.tope = nuevoNodo;
+            this.cima = nuevoNodo;
         } else {
-            this.tope.setSiguiente(nuevoNodo);
-            this.tope = nuevoNodo;
+            this.cima.setSiguiente(nuevoNodo);
+            this.cima = nuevoNodo;
         }
         this.tamanio++;
     }
@@ -41,8 +41,8 @@ public class Pila<E> {
     public E quitar() {
         E elemento = null;
         if (!this.estaVacia()) {
-            elemento = this.tope.getElemento();
-            this.tope = this.tope.getSiguiente();
+            elemento = this.cima.getElemento();
+            this.cima = this.cima.getSiguiente();
             this.tamanio--;
         } else {
             System.out.println("Pila Vacía...!!!");
@@ -53,7 +53,7 @@ public class Pila<E> {
     public E getCima() {
         E elemento = null;
         if (!this.estaVacia()) {
-            elemento = this.tope.getElemento();
+            elemento = this.cima.getElemento();
         }
         return elemento;
     }
