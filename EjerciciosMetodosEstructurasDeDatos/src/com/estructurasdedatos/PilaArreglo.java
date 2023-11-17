@@ -23,7 +23,6 @@ public class PilaArreglo<E> {
     }
 
     public PilaArreglo(int maximo) {
-        this.maximo = 100;
         this.listadoElementos = (E[]) new Object[maximo];
         this.cima = -1;
     }
