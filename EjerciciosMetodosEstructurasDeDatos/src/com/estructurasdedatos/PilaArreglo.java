@@ -13,33 +13,33 @@ package com.estructurasdedatos;
 public class PilaArreglo<E> {
 
     private E[] listadoElementos;
-    private int tope;
+    private int cima;
     private int maximo;
 
     public PilaArreglo() {
         this.maximo = 100;
         this.listadoElementos = (E[]) new Object[this.maximo];
-        this.tope = -1;
+        this.cima = -1;
     }
 
     public PilaArreglo(int maximo) {
         this.maximo = 100;
         this.listadoElementos = (E[]) new Object[maximo];
-        this.tope = -1;
+        this.cima = -1;
     }
 
     public boolean estaVacia() {
-        return this.tope == -1;
+        return this.cima == -1;
     }
 
     public boolean estaLlena() {
-        return this.tope == this.maximo - 1;
+        return this.cima == this.maximo - 1;
     }
 
     public void poner(E elemento) {
         if (!this.estaLlena()) {
-            this.listadoElementos[this.tope] = elemento;
-            this.tope++;
+            this.listadoElementos[this.cima] = elemento;
+            this.cima++;
         } else {
             System.out.println("Pila Llena...!!!");
         }
@@ -48,8 +48,8 @@ public class PilaArreglo<E> {
     public E quitar() {
         E elemento = null;
         if (!this.estaVacia()) {
-            elemento = this.listadoElementos[this.tope];
-            this.tope--;
+            elemento = this.listadoElementos[this.cima];
+            this.cima--;
         } else {
             System.out.println("Pila Vacía...!!!");
         }
@@ -59,7 +59,7 @@ public class PilaArreglo<E> {
     public E getCima() {
         E elemento = null;
         if (!this.estaVacia()) {
-            elemento = this.listadoElementos[this.tope];
+            elemento = this.listadoElementos[this.cima];
         } else {
             System.out.println("Pila Vacía...!!!");
         }
