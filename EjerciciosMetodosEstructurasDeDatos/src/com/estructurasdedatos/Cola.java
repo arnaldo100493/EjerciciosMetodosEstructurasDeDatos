@@ -14,6 +14,7 @@ public class Cola<E> {
 
     private Nodo<E> primero;
     private Nodo<E> ultimo;
+    private int tamanio;
 
     public Cola() {
         this.primero = null;
@@ -22,6 +23,10 @@ public class Cola<E> {
 
     public boolean estaVacia() {
         return this.primero == null;
+    }
+
+    public int getTamanio() {
+        return this.tamanio;
     }
 
     public void poner(E elemento) {
@@ -33,6 +38,7 @@ public class Cola<E> {
             this.ultimo.setSiguiente(nuevoNodo);
             this.ultimo = nuevoNodo;
         }
+        this.tamanio++;
     }
 
     public E quitar() {
@@ -40,6 +46,7 @@ public class Cola<E> {
         if (!this.estaVacia()) {
             elemento = this.primero.getElemento();
             this.primero = this.primero.getSiguiente();
+            this.tamanio--;
         } else {
             System.out.println("Cola Vacía...!!!");
         }

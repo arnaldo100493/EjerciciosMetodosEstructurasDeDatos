@@ -17,13 +17,14 @@ public class Pila<E> {
 
     public Pila() {
         this.cima = null;
+        this.tamanio = 0;
     }
 
     public boolean estaVacia() {
         return this.cima == null;
     }
-    
-    public int getTamanio(){
+
+    public int getTamanio() {
         return this.tamanio;
     }
 
