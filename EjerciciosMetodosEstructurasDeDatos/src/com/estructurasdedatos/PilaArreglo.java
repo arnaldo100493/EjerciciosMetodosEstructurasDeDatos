@@ -55,7 +55,7 @@ public class PilaArreglo<E> {
         return elemento;
     }
 
-    public E getCima() {
+    public E cima() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.listadoElementos[this.cima];

@@ -25,7 +25,7 @@ public class Cola<E> {
         return this.primero == null;
     }
 
-    public int getTamanio() {
+    public int tamanio() {
         return this.tamanio;
     }
 
@@ -53,7 +53,7 @@ public class Cola<E> {
         return elemento;
     }
 
-    public E getPrimero() {
+    public E obtenerPrimero() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.primero.getElemento();
@@ -61,7 +61,7 @@ public class Cola<E> {
         return elemento;
     }
 
-    public E getUltimo() {
+    public E obtenerUltimo() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.ultimo.getElemento();
@@ -149,7 +149,7 @@ public class Cola<E> {
         Pila y = new Pila();
         while (!x.estaVacia()) {
             elemento = x.sacar();
-            while (elemento.equals(x.getPrimero())) {
+            while (elemento.equals(x.obtenerPrimero())) {
                 x.sacar();
             }
             y.empujar(elemento);

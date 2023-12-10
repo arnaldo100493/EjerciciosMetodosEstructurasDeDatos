@@ -40,7 +40,7 @@ public class ColaArreglo<E> {
         return this.primero == this.maximo - 1;
     }
     
-    public int getTamanio(){
+    public int tamanio(){
         return this.tamanio;
     }
 
@@ -66,7 +66,7 @@ public class ColaArreglo<E> {
         return elemento;
     }
 
-    public E getPrimero() {
+    public E obtenerPrimero() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.listadoElementos[this.primero];
@@ -76,7 +76,7 @@ public class ColaArreglo<E> {
         return elemento;
     }
 
-    public E getUltimo() {
+    public E obtenerUltimo() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.listadoElementos[this.ultimo];

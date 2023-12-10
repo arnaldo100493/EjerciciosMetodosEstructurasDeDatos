@@ -24,7 +24,7 @@ public class Pila<E> {
         return this.cima == null;
     }
 
-    public int getTamanio() {
+    public int tamanio() {
         return this.tamanio;
     }
 
@@ -51,7 +51,7 @@ public class Pila<E> {
         return elemento;
     }
 
-    public E getCima() {
+    public E cima() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.cima.getElemento();
@@ -135,7 +135,7 @@ public class Pila<E> {
         Pila y = new Pila();
         while (!x.estaVacia()) {
             elemento = x.sacar();
-            while (elemento.equals(x.getCima())) {
+            while (elemento.equals(x.cima())) {
                 x.sacar();
             }
             y.empujar(elemento);
