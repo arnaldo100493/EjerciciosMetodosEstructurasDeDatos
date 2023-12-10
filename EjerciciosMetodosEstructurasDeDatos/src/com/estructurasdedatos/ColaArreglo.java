@@ -44,7 +44,7 @@ public class ColaArreglo<E> {
         return this.tamanio;
     }
 
-    public void poner(E elemento) {
+    public void empujar(E elemento) {
         if (!this.estaLlena()) {
             this.listadoElementos[this.ultimo] = elemento;
             this.ultimo++;
@@ -54,7 +54,7 @@ public class ColaArreglo<E> {
         }
     }
 
-    public E quitar() {
+    public E sacar() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.listadoElementos[this.primero];

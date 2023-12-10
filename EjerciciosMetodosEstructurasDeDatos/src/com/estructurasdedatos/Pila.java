@@ -28,7 +28,7 @@ public class Pila<E> {
         return this.tamanio;
     }
 
-    public void poner(E elemento) {
+    public void empujar(E elemento) {
         Nodo<E> nuevoNodo = new Nodo<>(elemento);
         if (this.estaVacia()) {
             this.cima = nuevoNodo;
@@ -39,7 +39,7 @@ public class Pila<E> {
         this.tamanio++;
     }
 
-    public E quitar() {
+    public E sacar() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.cima.getElemento();
@@ -63,12 +63,12 @@ public class Pila<E> {
         String s = "";
         Pila<E> pilaAuxiliar = new Pila<>();
         while (!this.estaVacia()) {
-            E elemento = this.quitar();
+            E elemento = this.sacar();
             s += "\n" + elemento;
-            pilaAuxiliar.poner(elemento);
+            pilaAuxiliar.empujar(elemento);
         }
         while (!pilaAuxiliar.estaVacia()) {
-            this.poner(pilaAuxiliar.quitar());
+            this.empujar(pilaAuxiliar.sacar());
         }
         return s;
     }
@@ -76,36 +76,36 @@ public class Pila<E> {
     public static Pila eliminarPrimerElemento(Pila x) {
         Pila y = new Pila();
         while (!x.estaVacia()) {
-            y.poner(x.quitar());
+            y.empujar(x.sacar());
         }
-        y.quitar();
+        y.sacar();
         while (!y.estaVacia()) {
-            x.poner(y.quitar());
+            x.empujar(y.sacar());
         }
         return x;
     }
 
     public static void invertirExtremos(Pila x) {
-        Object elementoAuxiliar = x.quitar();
+        Object elementoAuxiliar = x.sacar();
         Pila y = new Pila();
         while (!x.estaVacia()) {
-            y.poner(x.quitar());
+            y.empujar(x.sacar());
         }
-        x.poner(elementoAuxiliar);
-        elementoAuxiliar = y.quitar();
+        x.empujar(elementoAuxiliar);
+        elementoAuxiliar = y.sacar();
         while (!y.estaVacia()) {
-            x.poner(y.quitar());
+            x.empujar(y.sacar());
         }
-        x.poner(elementoAuxiliar);
+        x.empujar(elementoAuxiliar);
     }
 
     public static void copiarPila(Pila x) {
         Pila y = new Pila();
         while (!x.estaVacia()) {
-            y.poner(x.quitar());
+            y.empujar(x.sacar());
         }
         while (!y.estaVacia()) {
-            System.out.println(y.quitar());
+            System.out.println(y.sacar());
         }
     }
 
@@ -116,16 +116,16 @@ public class Pila<E> {
             System.out.println("Pila Vacía...!!!");
         } else {
             while (!x.estaVacia()) {
-                elementoAuxiliar = x.quitar();
+                elementoAuxiliar = x.sacar();
                 if (elementoAuxiliar.equals(elemento)) {
                     System.out.println("Elemento " + elemento + "Eliminado...!!!");
                     elemento = null;
                 } else {
-                    y.poner(elementoAuxiliar);
+                    y.empujar(elementoAuxiliar);
                 }
             }
             while (!y.estaVacia()) {
-                x.poner(y.quitar());
+                x.empujar(y.sacar());
             }
         }
     }
@@ -134,21 +134,21 @@ public class Pila<E> {
         Object elemento = null;
         Pila y = new Pila();
         while (!x.estaVacia()) {
-            elemento = x.quitar();
+            elemento = x.sacar();
             while (elemento.equals(x.getCima())) {
-                x.quitar();
+                x.sacar();
             }
-            y.poner(elemento);
+            y.empujar(elemento);
         }
         while (!y.estaVacia()) {
-            x.poner(y.quitar());
+            x.empujar(y.sacar());
         }
     }
 
     public static Pila invertirElementos(Pila x) {
         Pila y = new Pila();
         while (!x.estaVacia()) {
-            y.poner(x.quitar());
+            y.empujar(x.sacar());
         }
         return y;
     }
