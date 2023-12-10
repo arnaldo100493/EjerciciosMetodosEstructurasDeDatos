@@ -17,11 +17,11 @@ public class Main {
     public static void main(String[] args) {
         // TODO code application logic here
         Cola<Integer> lista = new Cola<>();
-        lista.empujar(1);
-        lista.empujar(2);
-        lista.empujar(3);
-        lista.empujar(4);
-        lista.empujar(5);
+        lista.agregar(1);
+        lista.agregar(2);
+        lista.agregar(3);
+        lista.agregar(4);
+        lista.agregar(5);
 
         System.out.println(lista.imprimir());
         

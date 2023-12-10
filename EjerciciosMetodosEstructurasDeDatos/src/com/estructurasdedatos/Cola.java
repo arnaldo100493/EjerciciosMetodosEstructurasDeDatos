@@ -29,7 +29,7 @@ public class Cola<E> {
         return this.tamanio;
     }
 
-    public void empujar(E elemento) {
+    public void agregar(E elemento) {
         Nodo<E> nuevoNodo = new Nodo<>(elemento);
         if (this.estaVacia()) {
             this.primero = nuevoNodo;
@@ -41,7 +41,7 @@ public class Cola<E> {
         this.tamanio++;
     }
 
-    public E sacar() {
+    public E remover() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.primero.getElemento();
@@ -74,12 +74,12 @@ public class Cola<E> {
         String s = "";
         Cola<E> colaAuxiliar = new Cola<>();
         while (!this.estaVacia()) {
-            E elemento = this.sacar();
+            E elemento = this.remover();
             s += "\n" + elemento;
-            colaAuxiliar.empujar(elemento);
+            colaAuxiliar.agregar(elemento);
         }
         while (!colaAuxiliar.estaVacia()) {
-            this.empujar(colaAuxiliar.sacar());
+            this.agregar(colaAuxiliar.remover());
         }
         return s;
     }
@@ -88,37 +88,37 @@ public class Cola<E> {
     public static Cola eliminarPrimerElemento(Cola x) {
         Cola y = new Cola();
         while (!x.estaVacia()) {
-            y.empujar(x.sacar());
+            y.agregar(x.remover());
         }
-        y.sacar();
+        y.remover();
         while (!y.estaVacia()) {
-            x.empujar(y.sacar());
+            x.agregar(y.remover());
         }
         return x;
     }
 
     public static void invertirExtremos(Cola x) {
-        Object elementoAuxiliar = x.sacar();
+        Object elementoAuxiliar = x.remover();
         Cola y = new Cola();
         while (!x.estaVacia()) {
-            y.empujar(x.sacar());
+            y.agregar(x.remover());
         }
-        x.empujar(elementoAuxiliar);
-        elementoAuxiliar = y.sacar();
+        x.agregar(elementoAuxiliar);
+        elementoAuxiliar = y.remover();
         while (!y.estaVacia()) {
-            x.empujar(y.sacar());
+            x.agregar(y.remover());
         }
-        x.empujar(elementoAuxiliar);
+        x.agregar(elementoAuxiliar);
     }
 
     //Método copiarCola Funciona Perfecto.
     public static void copiarCola(Cola x) {
         Cola y = new Cola();
         while (!x.estaVacia()) {
-            y.empujar(x.sacar());
+            y.agregar(x.remover());
         }
         while (!y.estaVacia()) {
-            System.out.println(y.sacar());
+            System.out.println(y.remover());
         }
     }
 
@@ -130,16 +130,16 @@ public class Cola<E> {
             System.out.println("Cola Vacía...!!!");
         } else {
             while (!x.estaVacia()) {
-                elementoAuxiliar = x.sacar();
+                elementoAuxiliar = x.remover();
                 if (elementoAuxiliar.equals(elemento)) {
                     System.out.println("Elemento " + elemento + " Eliminado...!!!");
                     elemento = null;
                 } else {
-                    y.empujar(elementoAuxiliar);
+                    y.agregar(elementoAuxiliar);
                 }
             }
             while (!y.estaVacia()) {
-                x.empujar(y.sacar());
+                x.agregar(y.remover());
             }
         }
     }
@@ -148,21 +148,21 @@ public class Cola<E> {
         Object elemento = null;
         Pila y = new Pila();
         while (!x.estaVacia()) {
-            elemento = x.sacar();
+            elemento = x.remover();
             while (elemento.equals(x.obtenerPrimero())) {
-                x.sacar();
+                x.remover();
             }
             y.empujar(elemento);
         }
         while (!y.estaVacia()) {
-            x.empujar(y.sacar());
+            x.agregar(y.sacar());
         }
     }
 
     public static Cola invertirElementos(Cola x) {
         Cola y = new Cola();
         while (!x.estaVacia()) {
-            y.empujar(x.sacar());
+            y.agregar(x.remover());
         }
         return y;
     }

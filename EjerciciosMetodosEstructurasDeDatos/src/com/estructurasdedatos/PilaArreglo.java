@@ -35,7 +35,7 @@ public class PilaArreglo<E> {
         return this.cima == this.maximo - 1;
     }
 
-    public void poner(E elemento) {
+    public void empujar(E elemento) {
         if (!this.estaLlena()) {
             this.listadoElementos[this.cima] = elemento;
             this.cima++;
@@ -44,7 +44,7 @@ public class PilaArreglo<E> {
         }
     }
 
-    public E quitar() {
+    public E sacar() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.listadoElementos[this.cima];

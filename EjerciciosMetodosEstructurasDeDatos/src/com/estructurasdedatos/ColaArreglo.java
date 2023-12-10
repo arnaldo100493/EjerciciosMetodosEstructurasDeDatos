@@ -44,24 +44,24 @@ public class ColaArreglo<E> {
         return this.tamanio;
     }
 
-    public void empujar(E elemento) {
+    public void agregar(E elemento) {
         if (!this.estaLlena()) {
             this.listadoElementos[this.ultimo] = elemento;
             this.ultimo++;
             this.tamanio++;
         } else {
-            System.out.println("Pila Llena...!!!");
+            System.out.println("Cola Llena...!!!");
         }
     }
 
-    public E sacar() {
+    public E remover() {
         E elemento = null;
         if (!this.estaVacia()) {
             elemento = this.listadoElementos[this.primero];
             this.primero--;
             this.tamanio--;
         } else {
-            System.out.println("Pila Vacía...!!!");
+            System.out.println("Cola Vacía...!!!");
         }
         return elemento;
     }
@@ -71,7 +71,7 @@ public class ColaArreglo<E> {
         if (!this.estaVacia()) {
             elemento = this.listadoElementos[this.primero];
         } else {
-            System.out.println("Pila Vacía...!!!");
+            System.out.println("Cola Vacía...!!!");
         }
         return elemento;
     }
@@ -81,7 +81,7 @@ public class ColaArreglo<E> {
         if (!this.estaVacia()) {
             elemento = this.listadoElementos[this.ultimo];
         } else {
-            System.out.println("Pila Vacía...!!!");
+            System.out.println("Cola Vacía...!!!");
         }
         return elemento;
     }
