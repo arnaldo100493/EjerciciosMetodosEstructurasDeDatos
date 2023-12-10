@@ -83,6 +83,13 @@ public class Cola<E> {
         }
         return s;
     }
+    
+    //Método para limpiar la cola.
+     public void limpiar() {
+        while (!this.estaVacia()) {
+            this.remover();
+        }
+    }
 
     //Método eliminarPrimerElemento Funciona Perfecto.
     public static Cola eliminarPrimerElemento(Cola x) {

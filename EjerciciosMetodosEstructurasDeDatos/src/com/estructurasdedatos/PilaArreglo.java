@@ -64,4 +64,12 @@ public class PilaArreglo<E> {
         }
         return elemento;
     }
+
+    //Método para limpiar la pila
+    public void limpiar() {
+        while (!this.estaVacia()) {
+            this.sacar();
+        }
+    }
+
 }

@@ -73,6 +73,13 @@ public class Pila<E> {
         return s;
     }
 
+    //Método para limpiar la pila
+    public void limpiar() {
+        while (!this.estaVacia()) {
+            this.sacar();
+        }
+    }
+
     public static Pila eliminarPrimerElemento(Pila x) {
         Pila y = new Pila();
         while (!x.estaVacia()) {

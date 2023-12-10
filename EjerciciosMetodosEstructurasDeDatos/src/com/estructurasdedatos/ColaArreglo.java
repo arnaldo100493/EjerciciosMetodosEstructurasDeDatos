@@ -39,8 +39,8 @@ public class ColaArreglo<E> {
     public boolean estaLlena() {
         return this.primero == this.maximo - 1;
     }
-    
-    public int tamanio(){
+
+    public int tamanio() {
         return this.tamanio;
     }
 
@@ -84,5 +84,12 @@ public class ColaArreglo<E> {
             System.out.println("Cola Vacía...!!!");
         }
         return elemento;
+    }
+
+    //Método para limpiar la cola.
+    public void limpiar() {
+        while (!this.estaVacia()) {
+            this.remover();
+        }
     }
 }

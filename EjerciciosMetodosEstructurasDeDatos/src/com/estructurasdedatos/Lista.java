@@ -24,7 +24,7 @@ public class Lista<E> {
         return listaPositivos == null && listaNegativos == null;
     }
     
-    public int obtenerTamanio(){
+    public int tamanio(){
         return this.tamanio;
     }
 
