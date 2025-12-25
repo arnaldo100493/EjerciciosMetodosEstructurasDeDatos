@@ -153,16 +153,16 @@ public class Cola<E> {
 
     public static void eliminarElementosRepetidosConsecutivos(Cola x) {
         Object elemento = null;
-        Pila y = new Pila();
+        Cola y = new Cola();
         while (!x.estaVacia()) {
             elemento = x.remover();
             while (elemento.equals(x.obtenerPrimero())) {
                 x.remover();
             }
-            y.empujar(elemento);
+            y.agregar(elemento);
         }
         while (!y.estaVacia()) {
-            x.agregar(y.sacar());
+            x.agregar(y.remover());
         }
     }
 
