@@ -79,9 +79,9 @@ public class ArbolBinario<E> {
     // RECORRIDO INORDEN DE UN ÁRBOL BINARIO
     private String inorden(NodoArbolBinario<E> raiz, String s) {
         if (raiz != null) {
-            s = this.inorden(raiz.getHijoIzquierdo(), s);
+            s = inorden(raiz.getHijoIzquierdo(), s);
             s += " " + raiz.getElemento();
-            s = this.inorden(raiz.getHijoDerecho(), s);
+            s = inorden(raiz.getHijoDerecho(), s);
         }
         return s;
     }
