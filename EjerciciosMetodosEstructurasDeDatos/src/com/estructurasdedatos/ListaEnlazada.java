@@ -8,4 +8,8 @@ package com.estructurasdedatos;
  */
 
 public class ListaEnlazada<E> {
+
+   public ListaEnlazada () {
+
+   }
 }

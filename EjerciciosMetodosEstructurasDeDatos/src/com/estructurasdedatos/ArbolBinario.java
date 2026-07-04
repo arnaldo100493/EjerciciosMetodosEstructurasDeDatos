@@ -69,7 +69,6 @@ public class ArbolBinario<E> {
             s += " " + raiz.getElemento();
         }
         return s;
-
     }
 
     public String postorden() {
@@ -103,7 +102,6 @@ public class ArbolBinario<E> {
                 return true;
             }
         }
-
         return false;
     }
 
@@ -123,7 +121,6 @@ public class ArbolBinario<E> {
         Integer c2 = contar(raiz.getHijoDerecho());
         Integer c3 = c1 + c2 + 1;
         return c3;
-
     }
 
     public String contar() {

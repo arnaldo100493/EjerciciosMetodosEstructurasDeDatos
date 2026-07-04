@@ -9,7 +9,7 @@ public class ListaEnlazadaDoble<E> implements Lista<E> {
 
    private NodoDoble<E> primero;
    private NodoDoble<E> ultimo;
-   private int  tamanio;
+   private int tamanio;
 
    public ListaEnlazadaDoble() {
       primero = null;
@@ -29,50 +29,50 @@ public class ListaEnlazadaDoble<E> implements Lista<E> {
        return tamanio;
    }
 
-   public void agregar(E elemento){
+   public void agregar(E elemento) {
        NodoDoble<E> nuevoNodo = new NodoDoble<>(elemento);
-       if(estaVacia()){
+       if (estaVacia()) {
            primero = nuevoNodo;
            ultimo = nuevoNodo;
-       }else{
+       } else {
            nuevoNodo.setAnterior(ultimo);
            ultimo.setSiguiente(nuevoNodo);
            ultimo = nuevoNodo;
        }
    }
 
-   public void agregarPrimero(E elemento){
+   public void agregarPrimero(E elemento) {
        NodoDoble<E> nuevoNodo = new NodoDoble<>(elemento);
-       if(estaVacia()){
+       if (estaVacia()) {
            primero = nuevoNodo;
            ultimo = nuevoNodo;
-       }else{
+       } else {
           nuevoNodo.setSiguiente(primero);
           primero.setAnterior(nuevoNodo);
           primero = nuevoNodo;
        }
    }
 
-   public void agregarUltimo(E elemento){
+   public void agregarUltimo(E elemento) {
       NodoDoble<E> nuevoNodo = new NodoDoble<>(elemento);
-         if(estaVacia()){
+         if (estaVacia()) {
            primero = nuevoNodo;
            ultimo = nuevoNodo;
-         }else{
+         } else {
              nuevoNodo.setAnterior(ultimo);
              ultimo.setSiguiente(nuevoNodo);
              ultimo = nuevoNodo;
          }
    }
 
-    public E remover(){
+    public E remover() {
        E elemento = null;
-         if(!estaVacia()){
+         if (!estaVacia()) {
              //Sí solo hay un solo nodo en la lista
-           if(primero.getSiguiente() == null){
+           if (primero.getSiguiente() == null) {
                primero = null;
                ultimo = null;
-           }else{
+           } else {
                primero = primero.getSiguiente();
                primero.setAnterior(null);
            }
@@ -80,14 +80,14 @@ public class ListaEnlazadaDoble<E> implements Lista<E> {
        return elemento;
     }
 
-    public E removerPrimero(){
+    public E removerPrimero() {
         E elemento = null;
-        if(!estaVacia()){
-            if(primero.getSiguiente() == null){
+        if (!estaVacia()) {
+            if (primero.getSiguiente() == null) {
                 elemento = primero.getElemento();
                 primero = null;
                 ultimo = null;
-            }else{
+            } else {
                 elemento = primero.getElemento();
                 primero = primero.getSiguiente();
                 primero.setAnterior(null);
@@ -96,14 +96,14 @@ public class ListaEnlazadaDoble<E> implements Lista<E> {
         return elemento;
     }
 
-    public E removerUltimo(){
+    public E removerUltimo() {
         E elemento = null;
-        if(!estaVacia()){
-            if(primero.getSiguiente() == null){
+        if (!estaVacia()) {
+            if (primero.getSiguiente() == null) {
                 elemento = ultimo.getElemento();
                 primero = null;
                 ultimo = null;
-            }else{
+            } else {
                 elemento = ultimo.getElemento();
                 ultimo = ultimo.getAnterior();
                 ultimo.setSiguiente(null);
@@ -112,17 +112,17 @@ public class ListaEnlazadaDoble<E> implements Lista<E> {
         return elemento;
     }
 
-    public E primero(){
+    public E primero() {
        E elemento = null;
-       if(!estaVacia()){
+       if (!estaVacia()) {
            elemento = primero.getElemento();
        }
        return elemento;
     }
 
-   public E ultimo(){
+   public E ultimo() {
        E elemento = null;
-       if(!estaVacia()){
+       if (!estaVacia()) {
            elemento = ultimo.getElemento();
        }
        return elemento;
@@ -153,7 +153,7 @@ public class ListaEnlazadaDoble<E> implements Lista<E> {
     }
 
     //Método para limpiar la lista.
-    public void limpiar(){
+    public void limpiar() {
        if(!estaVacia()){
            remover();
        }
